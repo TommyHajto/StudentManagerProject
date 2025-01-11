@@ -1,0 +1,12 @@
+{
+    "java.project.sourcePaths": ["src"],
+    "java.project.outputPath": "bin",
+    "java.project.referencedLibraries": [
+        "c:\\Program Files (x86)\\MySQL\\mysql-connector-j-9.1.0\\mysql-connector-j-9.1.0.jar"
+    ],
+    "java.format.settings.url": null,
+    "java.format.settings.profile": null,
+    "java.configuration.checkProjects": false
+
+    
+}
