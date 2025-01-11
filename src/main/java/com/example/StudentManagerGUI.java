@@ -24,7 +24,7 @@ public class StudentManagerGUI extends JFrame {
         add(scrollPane, BorderLayout.CENTER);
 
         JPanel inputPanel = new JPanel();
-        inputPanel.setLayout(new GridLayout(6, 2));
+        inputPanel.setLayout(new GridLayout(7, 2));
 
         inputPanel.add(new JLabel("Student ID:"));
         studentIDField = new JTextField();
@@ -61,6 +61,10 @@ public class StudentManagerGUI extends JFrame {
         JButton refreshButton = new JButton("Refresh");
         refreshButton.addActionListener(e -> updateStudentList());
         inputPanel.add(refreshButton);
+
+        JButton averageButton = new JButton("Calculate Average");
+        averageButton.addActionListener(new AverageButtonListener());
+        inputPanel.add(averageButton);
 
         add(inputPanel, BorderLayout.SOUTH);
 
@@ -125,6 +129,19 @@ public class StudentManagerGUI extends JFrame {
             updateStudentList(); // Odśwież listę studentów
 
             studentIDField.setText("");
+        }
+    }
+
+    private class AverageButtonListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            double average = studentManager.calculateAverageGrade();
+            JOptionPane.showMessageDialog(
+                    StudentManagerGUI.this,
+                    "Średnia ocen wszystkich studentów wynosi: " + average,
+                    "Średnia ocen",
+                    JOptionPane.INFORMATION_MESSAGE
+            );
         }
     }
 }
